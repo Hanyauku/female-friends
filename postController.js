@@ -3,7 +3,7 @@
 // get one post read more ---- doen
 // get all from user
 // edit your posts ----- doen
-// delete your post
+// delete your post ---- doen
 // filter post
 // count posts by user
 
@@ -117,6 +117,20 @@ router.put('/edit-post/:id', authCheck, (req, res) => {
         Post.findByIdAndUpdate(req.params.id, req.body, {new: true})
         .then(post => {
             return res.json(post);
+        })
+        .catch(error => {
+            res.json(error);
+        });
+
+});
+
+////delete post 
+router.delete('/delete/:id', authCheck, (req, res) => {
+    // res.send(req.session.user._id);
+    
+        Post.findByIdAndRemove({_id:req.params.id})
+        .then(post => {
+            return res.json('Your post is deleted');
         })
         .catch(error => {
             res.json(error);
