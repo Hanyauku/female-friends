@@ -12,7 +12,7 @@ const { check, validationResult } = require('express-validator/check');
 const router = express.Router();
 
 //add models
-const User = require('./models/userSchema');
+const User = require('./models/User');
 
 
 // validate input fields
