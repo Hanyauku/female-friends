@@ -7,7 +7,7 @@ var PostSchema = new Schema({
 		required: true
 	},
 	body: {
-		type: Number,
+		type: String,
 		required: true
 	},
     user: {
