@@ -5,7 +5,8 @@ const cors = require('cors');
 const session = require('express-session');
 
 //add here controllers
-//const userController = require('.controllers/userController');
+const userController = require('.controllers/userController');
+const postController = require('.controllers/postController');
 
 const app = express();
 
@@ -35,7 +36,8 @@ app.use(
 
 
 //use  controllers
-//app.use('/api/user', userController);
+app.use('/api/user', userController);
+app.use('/api/post', postController);
 
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
