@@ -1,8 +1,6 @@
 // payment and redirect for registration
-// get all users
+// get all users - populate with posts (sort by most active)
 // get top users
-// get one user
-// edit user (put)
 // filter all users
 // get friend users
 
@@ -136,28 +134,47 @@ router.get('/logout', (req, res) => {
    res.send('Logged out');
 });
 
-//get all users
-// router.get('/getcontacts', (req, res) => {
-//     Contact.find()
-//     .populate('user', 'name')
-//     .sort({ createdAt: 'desc' })
-//     .then(contacts => {
-//         res.json(contacts);
-//     })
-//     .catch(err => res.json(err));
-// });
+// get all users
+router.get('/getall', (req, res) => {
+    User.find()
+    .sort({ createdAt: 'desc' })
+    .then(users => {
+        res.json(users);
+    })
+    .catch(err => res.json(err));
+});
 
 
 //get user by id
-/* router.get('/contact/:id', (req, res) => {
-    Contact.findById(req.params.id)
-    .populate('user', 'name')
-    .then(contact => {
-        res.json(contact);
+router.get('/friend/:id', (req, res) => {
+    User.findById(req.params.id)
+    .then(user => {
+        res.json(user);
     })
     .catch(error => {
         res.json(error);
     });
-}); */
+});
+
+//edit user data
+router.put('/edit-info/:id', authCheck, (req, res) => {
+    if (req.session.user.id === req.params.id) {
+        User.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        .then(user => {
+            return res.json(user);
+        })
+        .catch(error => {
+            res.json(error);
+        });
+    } else {
+        return res.status(400).send({ isLoggedUser: false });
+    }
+});
+
+//filter all users
+router.get('/getallfrom', (req, res) => {
+  return 'boo';
+});
+
 
 module.exports = router;

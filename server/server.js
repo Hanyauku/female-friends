@@ -13,7 +13,7 @@ const app = express();
 app.use(bodyparser.json());
 
 try {
-	mongoose.connect('mongodb://female:female123@ds261521.mlab.com:61521/female');
+	mongoose.connect('mongodb://female:female123@ds261521.mlab.com:61521/female', { useNewUrlParser: true });
 } catch(error) {
 	console.log(error);
 };
