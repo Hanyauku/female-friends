@@ -12,7 +12,7 @@ const { check, validationResult } = require('express-validator/check');
 const router = express.Router();
 
 //add models
-const User = require('./models/User');
+const User = require('../models/User');
 
 
 // validate input fields
@@ -48,7 +48,7 @@ const validateRegistration = [
         .withMessage('Please fill in your password')
         .isLength({ min: 8 })
         .withMessage('Password should contain at least 8 characters')
-        .isAlphanumeric(
+        .isAlphanumeric()
         .withMessage('Password should contain only letters and numbers'),
     check('password_conf')
         .not()

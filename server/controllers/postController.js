@@ -12,12 +12,14 @@ const mongoose = require('mongoose');
 const bodyparser = require('body-parser');
 const cors = require('cors');
 const session = require('express-session');
+const { check, validationResult } = require('express-validator/check');
+const router = express.Router();
 
 //add models
-const Post = require('./models/Post');
+const Post = require('../models/Post');
 
 // validate post
-const validateLogin = [
+const validatePost = [
     check('title')
         .not()
         .isEmpty()

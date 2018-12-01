@@ -11,7 +11,7 @@ const cors = require('cors');
 const session = require('express-session');
 
 //add models
-const Comment = require('./models/Comment');
+const Comment = require('../models/Comment');
 
 // validate post
 const validateLogin = [
