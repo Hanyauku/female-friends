@@ -49,8 +49,7 @@ const validateRegistration = [
         .isLength({ min: 8 })
         .withMessage('Password should contain at least 8 characters')
         .isAlphanumeric(
-        .withMessage('Password should contain only letters and numbers')
-        ),
+        .withMessage('Password should contain only letters and numbers'),
     check('password_conf')
         .not()
         .isEmpty()

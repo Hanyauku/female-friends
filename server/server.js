@@ -5,8 +5,8 @@ const cors = require('cors');
 const session = require('express-session');
 
 //add here controllers
-const userController = require('.controllers/userController');
-const postController = require('.controllers/postController');
+const userController = require('./controllers/userController');
+const postController = require('./controllers/postController');
 
 const app = express();
 
