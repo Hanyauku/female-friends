@@ -93,10 +93,10 @@ router.get('/getallposts', (req, res) => {
     .catch(err => res.json(err));
 });
 
-//get one Post by id
+// get one Post by id
 router.get('/readmore/:id', (req, res) => {
     Post.findById({ _id: req.params.id })
-    .populete('user', { password: 0 })
+    .populate('user', { password: 0 })
     .then(post => {
         res.json(post);
     })
@@ -128,6 +128,36 @@ router.delete('/delete/:id', authCheck, activityMin,(req, res) => {
     .catch(error => {
         res.json(error);
     });
+});
+
+// filter posts
+router.get('/getallfrom', (req, res) => {
+    Post.find( )
+    .sort({ createdAt: 'desc' })
+    .populate(
+        {path: 'user',
+        match: req.body,
+        options: { password: 0 }})
+    .then(posts => {
+        let newposts = posts.filter(post => {if (post.user) return post });
+        res.json(newposts);
+    })
+    .catch(err => res.json(err));
+});
+
+// get all with one id
+router.get('/getallbyid/:id', (req, res) => {
+    Post.find( )
+    .sort({ createdAt: 'desc' })
+    .populate(
+        {path: 'user',
+        match: { _id: req.params.id },
+        options: { password: 0 }})
+    .then(posts => {
+        let newposts = posts.filter(post => {if (post.user) return post });
+        res.json(newposts);
+    })
+    .catch(err => res.json(err));
 });
 
 
