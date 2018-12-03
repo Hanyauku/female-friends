@@ -1,5 +1,4 @@
 // get all from user
-// filter post
 // add user id check for edit and delete post
 
 const express = require('express');
@@ -86,6 +85,7 @@ const validatePost = [
 // get all posts
 router.get('/getallposts', (req, res) => {
     Post.find()
+    .populate('user', { password: 0 })
     .sort({ createdAt: 'desc' })
     .then(posts => {
         res.json(posts);
@@ -96,6 +96,7 @@ router.get('/getallposts', (req, res) => {
 //get one Post by id
 router.get('/readmore/:id', (req, res) => {
     Post.findById({ _id: req.params.id })
+    .populete('user', { password: 0 })
     .then(post => {
         res.json(post);
     })
@@ -120,7 +121,7 @@ router.put('/edit-post/:id', authCheck, (req, res) => {
 // delete post
 router.delete('/delete/:id', authCheck, activityMin,(req, res) => {
     // add user id check
-    Post.findByIdAndRemove({ _id:req.params.id })
+    Post.findByIdAndRemove({ _id: req.params.id })
     .then(post => {
         return res.json('Your post is deleted');
     })
