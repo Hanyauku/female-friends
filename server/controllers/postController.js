@@ -1,4 +1,3 @@
-// get all from user
 // add user id check for edit and delete post
 
 const express = require('express');
@@ -159,6 +158,5 @@ router.get('/getallbyid/:id', (req, res) => {
     })
     .catch(err => res.json(err));
 });
-
 
 module.exports = router;

@@ -7,6 +7,7 @@ const session = require('express-session');
 //add here controllers
 const userController = require('./controllers/userController');
 const postController = require('./controllers/postController');
+const commentController = require('./controllers/commentController');
 
 const app = express();
 
@@ -38,6 +39,7 @@ app.use(
 //use  controllers
 app.use('/api/user', userController);
 app.use('/api/post', postController);
+app.use('/api/comment', commentController);
 
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
