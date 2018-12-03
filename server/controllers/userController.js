@@ -134,10 +134,11 @@ router.get('/logout', (req, res) => {
    res.send('Logged out');
 });
 
+
 // get all users
 router.get('/getall', (req, res) => {
     User.find()
-    .sort({ createdAt: 'desc' })
+    .sort({ activity: 'desc' })
     .then(users => {
         res.json(users);
     })
@@ -158,7 +159,7 @@ router.get('/friend/:id', (req, res) => {
 
 //edit user data
 router.put('/edit-info/:id', authCheck, (req, res) => {
-    if (req.session.user.id === req.params.id) {
+    if (req.session.user._id === req.params.id) {
         User.findByIdAndUpdate(req.params.id, req.body, {new: true})
         .then(user => {
             return res.json(user);
@@ -172,9 +173,24 @@ router.put('/edit-info/:id', authCheck, (req, res) => {
 });
 
 //filter all users
-router.get('/getallfrom', (req, res) => {
-  return 'boo';
+router.get('/getallfrom/:field/:value', (req, res) => {
+    User.find()
+    .sort({ activity: 'desc' })
+    .then(users => {
+        res.json(users);
+    })
+    .catch(err => res.json(err));
 });
 
+// get top users
+router.get('/top', (req, res) => {
+    User.find()
+    .sort({ activity: 'desc' })
+    .limit(5)
+    .then(users => {
+        res.json(users);
+    })
+    .catch(err => res.json(err));
+});
 
 module.exports = router;
