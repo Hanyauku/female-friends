@@ -1,12 +1,20 @@
 import React from 'react';
-import NavBar from '../Layout/NavBar';
+import PageTitle from '../Layout/PageTitle';
+import Footer from '../Layout/Footer';
+import NewPost from './NewPost';
+import TopMembers from './TopMembers';
+import MainNavBar from '../Layout/MainNavBar';
 
 export default class Main extends React.Component {
     render() {
         return (
             <div>
-                Main
-                <NavBar />
+                
+                <PageTitle />
+                <MainNavBar />
+                <NewPost />
+                <TopMembers />
+                <Footer />
             </div>
         );
     }
