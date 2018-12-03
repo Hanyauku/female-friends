@@ -1,11 +1,11 @@
 // add post ----- doen
 // get all posts ---- doen
 // get one post read more ---- doen
-// get all from user
+// get all posts from one user
 // edit your posts ----- doen
 // delete your post ---- doen
 // filter post
-// count posts by user
+// count posts by user ---- doen
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -113,7 +113,7 @@ router.get('/readmore/:id', (req, res) => {
 ////Edit post data
 router.put('/edit-post/:id', authCheck, (req, res) => {
     // res.send(req.session.user._id);
-    
+        
         Post.findByIdAndUpdate(req.params.id, req.body, {new: true})
         .then(post => {
             return res.json(post);
@@ -125,7 +125,7 @@ router.put('/edit-post/:id', authCheck, (req, res) => {
 });
 
 ////delete post 
-router.delete('/delete/:id', authCheck, (req, res) => {
+router.delete('/delete/:id', authCheck, activityMin,(req, res) => {
     // res.send(req.session.user._id);
     
         Post.findByIdAndRemove({_id:req.params.id})
