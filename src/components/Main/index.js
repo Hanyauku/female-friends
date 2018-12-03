@@ -6,7 +6,7 @@ export default class Main extends React.Component {
         return (
             <div>
                 <div>
-                    <h1>login</h1>
+                    <h1>Main</h1>
                     <p>navbar</p>
                     <p>hello with picture</p>
                     <p>User picture</p>
