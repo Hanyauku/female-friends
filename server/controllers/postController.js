@@ -1,10 +1,6 @@
-// get all posts
-// get one post
 // get all from user
-// edit your posts
-// delete your post
 // filter post
-// count posts by user
+// add user id check for edit and delete post
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -26,18 +22,7 @@ const authCheck = (req, res, next) => {
 	return res.status(401).send({ isLoggedIn: false });
 };
 
-// validate post
-const validatePost = [
-    check('title')
-        .not()
-        .isEmpty()
-        .withMessage('Please fill in some title'),
-    check('body')
-        .not()
-        .isEmpty()
-        .withMessage('Please write something first')
-];
-
+// count users posts +
 const activityPlus = (req, res, next) => {
     User.findOneAndUpdate({_id : req.session.user._id}, {$inc : {'activity' : 1}})
     .then(() => {
@@ -49,6 +34,31 @@ const activityPlus = (req, res, next) => {
         });
     })
 };
+
+// count users posts --
+const activityMin = (req, res, next) => {
+    User.findOneAndUpdate({_id : req.session.user._id}, {$inc : {'activity' : -1}})
+    .then(() => {
+        return next()
+    })
+    .catch(err => {
+        return res.status(400).json({
+            err
+        });
+    })
+};
+
+// validate post
+const validatePost = [
+    check('title')
+        .not()
+        .isEmpty()
+        .withMessage('Please fill in some title'),
+    check('body')
+        .not()
+        .isEmpty()
+        .withMessage('Please write something first')
+];
 
  //post
  router.post('/addpost', authCheck, validatePost, activityPlus, (req, res) => {
@@ -72,23 +82,52 @@ const activityPlus = (req, res, next) => {
         });
     });
 });
- /*
-router.post('/addcontact', authCheck, validateContact, (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.mapped() });
-    }
-    const contact = new Contact(req.body);
-    contact.user = req.session.user._id;
-    contact.save()
-    .then(contact => {
-        return res.json({
-            success: true
-        });
+
+// get all posts
+router.get('/getallposts', (req, res) => {
+    Post.find()
+    .sort({ createdAt: 'desc' })
+    .then(posts => {
+        res.json(posts);
     })
-    .catch(err => {
-        return res.status(400).json(err);
+    .catch(err => res.json(err));
+});
+
+//get one Post by id
+router.get('/readmore/:id', (req, res) => {
+    Post.findById({ _id: req.params.id })
+    .then(post => {
+        res.json(post);
+    })
+    .catch(error => {
+        res.json(error);
     });
-}); */
+});
+
+// Edit post
+router.put('/edit-post/:id', authCheck, (req, res) => {
+    // add user id check
+    Post.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    .then(post => {
+        return res.json(post);
+    })
+    .catch(error => {
+        res.json(error);
+    });
+
+});
+
+// delete post
+router.delete('/delete/:id', authCheck, activityMin,(req, res) => {
+    // add user id check
+    Post.findByIdAndRemove({ _id:req.params.id })
+    .then(post => {
+        return res.json('Your post is deleted');
+    })
+    .catch(error => {
+        res.json(error);
+    });
+});
+
 
 module.exports = router;
