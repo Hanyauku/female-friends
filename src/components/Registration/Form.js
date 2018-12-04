@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
-import { withRouter } from 'react-router-dom';
 
-class Registration extends Component {
+export default class Registration extends Component {
 	constructor(props) {
 		super(props);
-
 		this.state = {
 			formData: {
                 firstName: '',
@@ -13,21 +11,20 @@ class Registration extends Component {
 				email: '',
 				password: '',
 				password_conf: ''
-				
 			},
 			errors: {}
 		};
 	}
 
 	changeHandler = e => {
-		var formData = this.state.formData;
+		const formData = this.state.formData;
 		formData[e.target.firstName] = e.target.value;
 		this.setState({ formData });
 	};
 
 	formHandler = e => {
 		e.preventDefault();
-		Axios.post('http://localhost:8000/registration', this.state.formData)
+		Axios.post('http://localhost:8000/api/user/registration', this.state.formData)
 			.then(res => {
 				this.setState({ success: true });
 			})
@@ -64,7 +61,7 @@ class Registration extends Component {
 						{errors.password_con && <p>{errors.password_con.msg}</p>}
 						<p>Confirm Password: <input onChange={this.changeHandler} name="password_conf" type="password" /></p>
 					</div>
-					
+
 					<button type="submit">
 						Register & Pay
 					</button>
@@ -73,5 +70,3 @@ class Registration extends Component {
 		);
 	}
 }
-
-export default withRouter(Registration);

@@ -1,8 +1,5 @@
 // payment and redirect for registration
-// get all users - populate with posts (sort by most active)
-// get top users
-// filter all users
-// get friend users
+// get user friends
 
 const express = require('express');
 const bcrypt = require('bcrypt');
@@ -11,7 +8,6 @@ const router = express.Router();
 
 //add models
 const User = require('../models/User');
-
 
 // validate input fields
 const validateRegistration = [
@@ -173,8 +169,8 @@ router.put('/edit-info/:id', authCheck, (req, res) => {
 });
 
 //filter all users
-router.get('/getallfrom/:field/:value', (req, res) => {
-    User.find()
+router.get('/getallfrom', (req, res) => {
+    User.find( req.body )
     .sort({ activity: 'desc' })
     .then(users => {
         res.json(users);
