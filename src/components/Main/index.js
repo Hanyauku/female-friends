@@ -10,25 +10,17 @@ export default class Main extends React.Component {
         return (
             <div>
                 <div>
-                    <h1>Main</h1>
-                    <p>navbar</p>
+                    <MainNavBar />
                     <p>hello with picture</p>
                     <p>User picture</p>
                     <p>user info</p>
-                    <p>create new post</p>
+                    <NewPost />
                     <p>5 latest posts</p>
                     <p>top users</p>
                     <p>group members</p>
-                    <p>footer</p>
+                    <Footer />
                 </div>
             </div>
         );
     }
 }
-
-/*                 
-                <PageTitle />
-                <MainNavBar />
-                <NewPost />
-                <TopMembers />
-                <Footer /> */
