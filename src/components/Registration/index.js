@@ -1,4 +1,5 @@
 import React from 'react';
+import Form from './Form';
 
 export default class Registration extends React.Component {
     render() {
@@ -7,7 +8,8 @@ export default class Registration extends React.Component {
                 <h1>Registration</h1>
                 <p>navbar</p>
                 <p>picture</p>
-                <p>registration form</p>
+                <Form />
+                <p>Add terms and conditions</p>
                 <p>footer</p>
             </div>
         );

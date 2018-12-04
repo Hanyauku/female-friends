@@ -1,17 +1,17 @@
 import React from 'react';
-import female_logo from '../../image/DarkAqua.jpg';
-import facebook from '../../image/iconfinder_facebook.png';
-import linkedin from '../../image/iconfinder_linkedin.png';
+import female_logo from '../../img/DarkAqua.jpg';
+import facebook from '../../img/iconfinder_facebook.png';
+import linkedin from '../../img/iconfinder_linkedin.png';
 //import mail from '../../image/iconfinder_mail.png';
-import twitter from '../../image/iconfinder_twitter.png';
+import twitter from '../../img/iconfinder_twitter.png';
 
 export default class NavBar extends React.Component {
     render() {
         return (
             <div>
                 <ul>
-                
-                
+
+
                 <li>
                     <a href="https://femaleventures.nl/"><img src={female_logo} alt="female ventures" width="60" /></a>
                 </li>
