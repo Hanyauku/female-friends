@@ -22,6 +22,7 @@ class FormLog extends Component {
 
     formHandler = e => {
         e.preventDefault();
+        this.setState({ errors: {} });
         Axios.post('http://localhost:8000/api/user/login', this.state.formData)
             .then(res => {
                 this.props.history.push('/');
@@ -34,17 +35,16 @@ class FormLog extends Component {
     render() {
         let { errors } = this.state;
         return (
-            <div  className="log">
-                <h4>Existing Users</h4>
+            <div>
                 <form onSubmit={this.formHandler}>
                     {errors.auth && <p>{errors.auth.msg}</p>}
                     <div>
                         {errors.email && <p>{errors.email.msg}</p>}
-                        <input type="email" name="email" onChange={this.changeHandler} placeholder="Email" />
+                        <p>Email: <input type="email" name="email" onChange={this.changeHandler} placeholder="Email" /></p>
                     </div>
                     <div>
                         {errors.password && <p>{errors.password.msg}</p>}
-                        <input onChange={this.changeHandler} name="password" type="password" placeholder="Password" />
+                        <p>Password: <input onChange={this.changeHandler} name="password" type="password" placeholder="Password" /></p>
                     </div>
                     <button type="submit">Log In</button>
                 </form>
@@ -53,4 +53,4 @@ class FormLog extends Component {
     }
 }
 
-export default withRouter(Login);
+export default withRouter(FormLog);

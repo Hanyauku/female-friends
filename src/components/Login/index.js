@@ -1,15 +1,14 @@
 import React from 'react';
 import NavBar from '../Layout/NavBar';
 import Footer from '../Layout/Footer';
+import FormLog from './FormLog';
 
 export default class Login extends React.Component {
     render() {
         return (
             <div>
-                <h1>login</h1>
                 <NavBar />
-                <p>picture</p>
-                <p>login form</p>
+                <FormLog />
                 <Footer />
             </div>
         );

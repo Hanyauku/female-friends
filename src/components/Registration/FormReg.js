@@ -41,7 +41,6 @@ class FormReg extends Component {
 			<div>
 				<form onSubmit={this.formHandler}>
 					{errors.auth && <p>{errors.auth.msg}</p>}
-					<h1>Registration</h1>
                     <div>
 						{errors.firstName && <p>{errors.firstName.msg}</p>}
 						<p>First Name: <input onChange={this.changeHandler} name="firstName" type="text" /></p>
