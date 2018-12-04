@@ -84,18 +84,17 @@ router.post('/registration', validateRegistration, (req, res) => {
     if (!errors.isEmpty()) {
 		return res.status(400).json({ errors: errors.mapped() });
     }
+    res.send('ncjsc');
     //after redirect to payment and then next
     const user = new User(req.body);
     user.password = user.hashPassword(user.password);
     user.save()
         .then(user => {
-            return res.json({
-				ok: true,
-				message: 'You are successfully registered. Please Log in'
-			});
+            req.session.user = user;
+            return res.send({ message: 'You are registred' });
         })
         .catch(err => {
-            return res.status(400).json({ errors: { auth: { msg: 'Oooops... Something went wrong!' }}});
+            return res.status(400).json( err );
     });
 });
 

@@ -7,10 +7,10 @@ export default class Login extends React.Component {
         return (
             <div>
                 <h1>login</h1>
-                <p>navbar</p>
+                <NavBar />
                 <p>picture</p>
                 <p>login form</p>
-                <p>footer</p>
+                <Footer />
             </div>
         );
     }

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import { withRouter } from 'react-router-dom';
 
-export default class Registration extends Component {
+class FormReg extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -17,16 +18,17 @@ export default class Registration extends Component {
 	}
 
 	changeHandler = e => {
-		const formData = this.state.formData;
-		formData[e.target.firstName] = e.target.value;
-		this.setState({ formData });
+		let formData = this.state.formData;
+        formData[e.target.name] = e.target.value;
+        this.setState({ formData });
 	};
 
 	formHandler = e => {
 		e.preventDefault();
+		this.setState({ errors: {} });
 		Axios.post('http://localhost:8000/api/user/registration', this.state.formData)
 			.then(res => {
-				this.setState({ success: true });
+				this.props.history.push('/');
 			})
 			.catch(err => {
 				this.setState({ ...err.response.data }, () => console.log(this.state.errors));
@@ -34,12 +36,11 @@ export default class Registration extends Component {
 	};
 
 	render() {
-		let { errors, success } = this.state;
+		let { errors } = this.state;
 		return (
 			<div>
 				<form onSubmit={this.formHandler}>
 					{errors.auth && <p>{errors.auth.msg}</p>}
-					{success && <p>You are registered successfully!</p>}
 					<h1>Registration</h1>
                     <div>
 						{errors.firstName && <p>{errors.firstName.msg}</p>}
@@ -61,7 +62,6 @@ export default class Registration extends Component {
 						{errors.password_con && <p>{errors.password_con.msg}</p>}
 						<p>Confirm Password: <input onChange={this.changeHandler} name="password_conf" type="password" /></p>
 					</div>
-
 					<button type="submit">
 						Register & Pay
 					</button>
@@ -70,3 +70,5 @@ export default class Registration extends Component {
 		);
 	}
 }
+
+export default withRouter(FormReg);

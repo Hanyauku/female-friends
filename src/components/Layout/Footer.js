@@ -2,7 +2,6 @@ import React from 'react';
 import female_logo from '../../img/DarkAqua.jpg';
 import facebook from '../../img/iconfinder_facebook.png';
 import linkedin from '../../img/iconfinder_linkedin.png';
-//import mail from '../../image/iconfinder_mail.png';
 import twitter from '../../img/iconfinder_twitter.png';
 
 export default class NavBar extends React.Component {
