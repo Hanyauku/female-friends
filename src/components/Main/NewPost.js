@@ -5,11 +5,10 @@ class NewPost extends React.Component {
     super(props);
     this.state = {
         post: {
-            title: '',    
-            value: ''
- 
+            title: '',
+            body: ''
         },
-        error : {}     
+        error : {}
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -18,10 +17,10 @@ class NewPost extends React.Component {
 
   handleInputChange(event) {
     const post = this.state.post;
-    this.setState({ post });   
-    
+    this.setState({ post });
+
   }
-     
+
 
   handleSubmit(event) {
     alert('A post was submitted');
@@ -33,7 +32,7 @@ class NewPost extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <h3>Create New post</h3>
         <label>
-            <h3>Title: 
+            <h3>Title:
             <input type="text" title={this.state.title} onChange={this.handleInputChange} /></h3>
         </label>
         <br />
