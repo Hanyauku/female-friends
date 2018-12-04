@@ -116,6 +116,20 @@ router.get('/postcomment/:id', (req, res) => {
     .catch(err => res.json(err));
 });
 
+//count comments for post
+router.get('/countcomments/:id', (req, res) => {
+    Comment.find( )
+    .sort({ createdAt: 'desc' })
+    .populate(
+        {path: 'post',
+        match: { _id: req.params.id }})
+    .then(comments => {
+        let newcomments = comments.filter(comment => {if (comment.post) return comment });
+        res.json(newcomments.length)
+    })
+    .catch(err => res.json(err));
+});
+
 // Edit Comment
 router.put('/edit-comment/:id', authCheck, (req, res) => {
     // add user id check
