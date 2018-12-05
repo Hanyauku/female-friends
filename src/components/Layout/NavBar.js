@@ -1,38 +1,66 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,Button } from 'reactstrap';
+  import './css/NavBar.css';
 
 export default class NavBar extends React.Component {
-    render() {
+  constructor(props) {
+    super(props);
 
-        return (
-            <div>
-                <ul>
-                    <li>
-                        <a href="https://femaleventures.nl/mission/">WHAT WE DO</a>
-                    </li>
-                    <li>
-                        <a href="https://femaleventures.nl/events/">EVENT</a>
-                    </li>
-                    <li>
-                        <a href="https://femaleventures.nl/newsitems/">NEWS</a>
-                    </li>
-                    <li>
-                        <a href="https://femaleventures.nl/partners/">PARTNERS</a>
-                    </li>
-                    <li>
-                        <a href="https://femaleventures.nl/contact/">CONTACT</a>
-                    </li>
-                    <li>
-                        <a href="https://femaleventures.nl/product/donations/">DONATE</a>
-                    </li>
-                    <li>
-                        <NavLink to="/login">Log In</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/registration">Sign up</NavLink>
-                    </li>
-                </ul>
-            </div>
-        );
-    }
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false
+    };
+  }
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+  render() {
+    return (
+      <div >
+        <Navbar  className="Navbar" dark Navbar expand="md">
+          <NavbarBrand href="/"><img id="logo" src="https://femaleventures.nl/wp-content/uploads/2018/06/Logo_White-e1530265633749.png" alt="Female Ventures"></img></NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar >
+              <NavItem>
+                <NavLink href="#">WHAT WE DO/</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="#">EVENT/</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="#">NEWS/</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="#">PARTNERS/</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="#">CONTACT/</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="#">DONATE/</NavLink>
+              </NavItem>
+              <NavItem>
+
+                <Button  href="/registration">JOIN US !</Button >
+              </NavItem>
+              <NavItem>
+                <NavLink href="/login">LOG IN</NavLink>
+              </NavItem>
+
+            </Nav>
+          </Collapse>
+        </Navbar>
+      </div>
+    );
+  }
 }
