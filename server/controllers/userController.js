@@ -113,13 +113,13 @@ router.post('/login', validateLogin, (req, res) => {
 				return res.status(400).send({ errors: { auth: { msg: 'Wrong password!' } } });
 			}
 			req.session.user = user;
-			return res.send({ message: 'You are signed in' });
+            res.send(req.session.user);
         })
 });
 
 //check authorization
 router.get('/auth', (req, res) => {
-    if (req.session.user) res.send('success');
+    if (req.session.user) return res.send( req.session.user );
     return res.status(401).send({ isLoggedIn: false });
 });
 

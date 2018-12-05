@@ -10,13 +10,12 @@ export default class NavBar extends React.Component {
     render() {
         return (
             <div>
-
-            <div className="row">
+                <div className="row">
                     <div className="col-md-3 widget text-4 widget_text" id="footer">
                         <h4>Contact</h4><hr/>
                         <div className="textwidget">
-                        <p><a href="mailto:team@femaleventures.nl" target="_blank" rel="noopener">team@femaleventures.nl</a></p>
-                        <p>&nbsp;</p>
+                            <p><a href="mailto:team@femaleventures.nl" target="_blank" rel="noopener">team@femaleventures.nl</a></p>
+                            <p>&nbsp;</p>
                         </div>
                     </div>
                     <div className="col-md-3 widget text-4 widget_text" id="footer">
@@ -27,20 +26,18 @@ export default class NavBar extends React.Component {
                             <span className="fa fa-twitter">&nbsp;</span><a href="https://twitter.com/FemVentures" target="_blank" rel="noopener">Follow us on Twitter</a></p>
                         </div>
                     </div>
-
                     <div className="col-md-3 widget text-4 widget_text" id="footer">
                         <h4>Subscribe to Our Newsletter</h4><hr/>
                         <div className="textwidget">
                         <form>
                             <FormGroup>
-                            <Label for="exampleEmail">Email*</Label>
-                            <Input type="email" name="email" id="exampleEmail" placeholder="" />
+                                <Label for="exampleEmail">Email*</Label>
+                                <Input type="email" name="email" id="exampleEmail" placeholder="" />
                             </FormGroup>
-                        <Button>Subscribe!</Button>
+                            <Button>Subscribe!</Button>
                         </form>
                         </div>
                     </div>
-
                     <div className="col-md-3 widget nav_menu-2 widget_nav_menu"id="footer">
                         <h4>Information</h4><hr/>
                         <div className="menu-footer-menu-container">
@@ -50,8 +47,8 @@ export default class NavBar extends React.Component {
                             </ul>
                         </div>
                     </div>
+                </div>
             </div>
-        </div>
         );
     }
 }

@@ -25,7 +25,6 @@ export default class NewPost extends React.Component {
 		Axios.post('http://localhost:8000/api/post/addpost', this.state.formData)
 			.then(res => {
                 this.setState({ formData: { title: '', body: ''}});
-				console.log(res);
 			})
 			.catch(err => {
 				this.setState({ ...err.response.data }, () => console.log(this.state.errors));
@@ -33,15 +32,19 @@ export default class NewPost extends React.Component {
     }
 
     render() {
+        let { errors } = this.state;
         return (
             <form onSubmit={this.handleSubmit}>
+                {errors.auth && <p>{errors.auth.msg}</p>}
                 <h3>Create New post</h3>
                 <label>
+                    {errors.title && <p>{errors.title.msg}</p>}
                     <h3>Title:
                     <input type="text" title={this.state.title} name="title" onChange={this.handleChange} value={this.state.formData.title}/></h3>
                 </label>
                 <br />
                 <label>
+                    {errors.body && <p>{errors.body.msg}</p>}
                     Post:
                     <br />
                     <textarea value={this.state.body} name="body" onChange={this.handleChange} value={this.state.formData.body}/>
