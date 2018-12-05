@@ -1,0 +1,11 @@
+.card{
+    width: 70%;
+    
+}
+.CardTitle{
+background-color: #78B8B3;
+}
+.CardFooter{
+  height: 30px;  
+  background-color: rgb(232, 240, 239);
+}
