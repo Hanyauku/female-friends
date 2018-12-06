@@ -1,13 +1,13 @@
 import React from 'react';
 import FormReg from './FormReg';
 import Footer from '../Layout/Footer';
-import NavBarReg from './NavBarReg';
+import NavBar from '../Layout/NavBar';
 
 export default class Registration extends React.Component {
     render() {
         return (
             <div>
-                <NavBarReg />
+                <NavBar />
                 <FormReg />
                 <Footer />
             </div>

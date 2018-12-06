@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { Col, Button, Form, FormGroup, Label, Input, FormText, FormFeedback, Row, Card, CardHeader, UncontrolledTooltip} from 'reactstrap';
 import '../Login/css/background.css';
 
+
 class FormReg extends Component {
 	constructor(props) {
 		super(props);
