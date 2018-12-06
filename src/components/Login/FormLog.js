@@ -39,7 +39,7 @@ class FormLog extends Component {
         return (
             <div className="formContainer">
                 <div className="background">
-                    <div className="card">
+                    <div className="loginCard">
                         <Col sm="12" md={{ size: 5, offset: 6 }}>
                             <Card body>
                                 <CardHeader tag="h1">Log In</CardHeader>
@@ -47,8 +47,9 @@ class FormLog extends Component {
                                     {errors.auth && <FormFeedback>{errors.auth.msg}</FormFeedback>}
                                     <div>
                                         <FormGroup raw>
-                                            {errors.email && <FormFeedback>{errors.email.msg}</FormFeedback>}
                                             <Label  sm={4} size="lg" >Email:</Label>
+                                                {errors.email && <FormFeedback>{errors.email.msg}</FormFeedback>}
+
                                             <Col sm={10}>
                                                 <Input type="email" id="exampleEmail" placeholder="Enter e-mail address" name="email" onChange={this.changeHandler} bsSize="lg"/>
                                             </Col>
