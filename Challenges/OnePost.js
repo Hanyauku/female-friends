@@ -20,31 +20,25 @@ export default class Posts extends Component {
         let {title, body, createdAt, _id} = this.props.data;
         let {firstName, lastName} = this.props.data.user;
         createdAt = createdAt.slice(0, 10);
-        body = body.slice(0, 30);
+        body = body.slice(0, 180);
         return (
-            <div key={this.props.data._id}>
-                {/* <h3>{title}</h3>
-                <h5>by <Link to={`/friend/${this.props.data.user._id}`}>{firstName} {lastName}</Link></h5>
-                <p>{body} <Link to={`/challenge/${_id}`}>Read more...</Link></p>
-                <p>Posted at {createdAt}</p>
-                <Link to={`/challenge/${_id}`}>{this.state.count} Comments</Link> */}
+        <div key={this.props.data._id}>
+        
+        <Card body id="card">
+            <CardTitle className="CardTitle" tag="h4">{title}</CardTitle>
+            <CardText>{body}<Link to={`/challenge/${_id}`}>...Read more</Link></CardText>
+            <footer className="CardFooter">
+                <div className="postfooterBy">
+                by: <Link to={`/friend/${this.props.data.user._id}`}>{firstName} {lastName}</Link>..at {createdAt}
+                </div>
+                <div className="postfooterComment">
+                <Link to={`/challenge/${_id}`}>{this.state.count} Comments</Link>
+                </div>
+            </footer >
+        </Card><br/>
 
 
-  <Card body className="card">
-    <CardTitle className="CardTitle" tag="h4">{title}</CardTitle>
-    <CardText>{body}</CardText>
-    {/* <Button Link to={`/challenge/${_id}`}>Read more</Button> */}
-    <footer className="CardFooter">
-        Started by: <Link to={`/friend/${this.props.data.user._id}`}>{firstName} {lastName}</Link>|
-        Posted at {createdAt}|
-    <Link to={`/challenge/${_id}`}>{this.state.count} Comments</Link>|
-        <Link to={`/challenge/${_id}`}>Read more...</Link>
-    </footer >
-    
-  </Card>
-
-
-            </div>
+        </div>
         );
     };
 }
