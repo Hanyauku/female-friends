@@ -1,5 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
+import { Button, Card, CardTitle, CardText, FormFeedback, Input, FormGroup, Label } from 'reactstrap';
+import './css/newpost.css';
 
 export default class NewPost extends React.Component {
     constructor(props) {
@@ -34,24 +36,25 @@ export default class NewPost extends React.Component {
     render() {
         let { errors } = this.state;
         return (
-            <form onSubmit={this.handleSubmit}>
-                {errors.auth && <p>{errors.auth.msg}</p>}
-                <h3>Create New post</h3>
-                <label>
-                    {errors.title && <p>{errors.title.msg}</p>}
-                    <h3>Title:
-                    <input type="text" title={this.state.title} name="title" onChange={this.handleChange} value={this.state.formData.title}/></h3>
-                </label>
-                <br />
-                <label>
-                    {errors.body && <p>{errors.body.msg}</p>}
-                    Post:
-                    <br />
-                    <textarea value={this.state.body} name="body" onChange={this.handleChange} value={this.state.formData.body}/>
-                </label>
-                <br />
-                <input type="submit" value="Post" />
-            </form>
+            <div>
+                <Card body id="newCard">
+                    <CardTitle className="CardTitle" id="shareChallenge" tag="h4">Share Your Challenge</CardTitle>
+                    <CardText>
+                        <form onSubmit={this.handleSubmit}>
+                            <FormGroup>
+                                {errors.title && <Label>{errors.title.msg}</Label>}
+                                <Input type="text" title={this.state.title} name="title" placeholder="Title" onChange={this.handleChange} value={this.state.formData.title} placeholder="Title" className="input"/>
+                            </FormGroup>
+                            <FormGroup>
+                                {errors.body && <Label>{errors.body.msg}</Label>}
+                                <Input type="textarea" rows="6" value={this.state.body} name="body" placeholder="Describe your challenge here" onChange={this.handleChange} value={this.state.formData.body} />
+                            </FormGroup>
+                            <Button id="newPostBtn" type= "submit" value="post">Post</Button>
+                        </form>
+                    </CardText>
+                </Card>
+            </div>
         );
     }
+
 }

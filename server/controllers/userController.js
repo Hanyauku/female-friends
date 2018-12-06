@@ -84,7 +84,6 @@ router.post('/registration', validateRegistration, (req, res) => {
     if (!errors.isEmpty()) {
 		return res.status(400).json({ errors: errors.mapped() });
     }
-    res.send('ncjsc');
     //after redirect to payment and then next
     const user = new User(req.body);
     user.password = user.hashPassword(user.password);

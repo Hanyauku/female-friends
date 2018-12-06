@@ -12,7 +12,6 @@ export default class Users extends Component {
 
     componentDidMount() {
         Axios.get('http://localhost:8000/api/user/getall').then(res => this.setState( {users: res.data} ));
-        console.log('Hello');
     };
 
     render() {
