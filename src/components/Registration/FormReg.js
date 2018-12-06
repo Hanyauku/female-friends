@@ -48,7 +48,7 @@ class FormReg extends Component {
 								<CardHeader tag="h3">JOIN OUR COMMUNITY AND BECOME A FEMALE FRIEND</CardHeader>
 								<Form onSubmit={this.formHandler}>
 								{errors.auth && <FormFeedback>{errors.auth.msg}</FormFeedback>}
-								<FormGroup row>
+								<FormGroup id="row1" row>
 									<Col>
 									  	{errors.firstName && <FormFeedback>{errors.firstName.msg}</FormFeedback>}
 									  	<Label for="first name">First Name: </Label>{' '}
@@ -60,7 +60,7 @@ class FormReg extends Component {
 										<Input onChange={this.changeHandler} name="lastName" type="text" />
 								  	</Col>
 						   		</FormGroup>
-						   		<FormGroup row>
+						   		<FormGroup id="row1" row>
 									<Col>
 									  	{errors.email && <FormFeedback>{errors.email.msg}</FormFeedback>}
 									  	<Label for="email">e-mail: </Label>
@@ -72,7 +72,7 @@ class FormReg extends Component {
 										<Input onChange={this.changeHandler} name="password" type="password" />
 								  	</Col>
 						   		</FormGroup>
-						   		<FormGroup row>
+						   		<FormGroup id="row1" row>
 									<Col>
 								  		{errors.password_con && <FormFeedback>{errors.password_con.msg}</FormFeedback>}
 								  		<Label for="confirm password">Confirm Password: </Label>
@@ -88,13 +88,11 @@ class FormReg extends Component {
 									</Label>
 									<p>View our <a href="#">Term and Condition</a></p></Col>
 						   		</FormGroup>
-								<br/>
 						 		<Col sm={{ size: 'auto', offset: 1 }}>
 								   	<button id="loginBut" type="submit">
 									  	Register & Pay
 								   	</button>
 								</Col>
-								<br/>
 							</Form>
 						</Card>
 				   	</Col>
