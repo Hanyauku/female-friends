@@ -159,4 +159,15 @@ router.get('/getallbyid/:id', (req, res) => {
     .catch(err => res.json(err));
 });
 
+// get last 10 posts
+router.get('/getlastposts', (req, res) => {
+    Post.find()
+	.limit(8)
+    .populate('user', { password: 0 })
+    .sort({ createdAt: 'desc' })
+    .then(posts => {
+        res.json(posts);
+    })
+    .catch(err => res.json(err));
+});
 module.exports = router;

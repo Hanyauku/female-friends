@@ -11,8 +11,7 @@ class FormReg extends Component {
                 lastName: '',
 				email: '',
 				password: '',
-				password_conf: '',
-                checked: true
+				password_conf: ''
 			},
 			errors: {}
 		};
@@ -42,7 +41,6 @@ class FormReg extends Component {
 			<div>
 				<form onSubmit={this.formHandler}>
 					{errors.auth && <p>{errors.auth.msg}</p>}
-					<h1>Registration</h1>
                     <div>
 						{errors.firstName && <p>{errors.firstName.msg}</p>}
 						<p>First Name: <input onChange={this.changeHandler} name="firstName" type="text" /></p>
@@ -63,14 +61,6 @@ class FormReg extends Component {
 						{errors.password_con && <p>{errors.password_con.msg}</p>}
 						<p>Confirm Password: <input onChange={this.changeHandler} name="password_conf" type="password" /></p>
 					</div>
-                    <div>
-                        {errors.checked && <p>{errors.checked.msg}</p>}
-                        <strong>Term and Condition:</strong>
-                        <br />
-                        <p><input type="checkbox" onChange={this.ChangeHandler} name="checked" />Agree</p>
-                        <p>View <a href="https://femaleventures.nl/wp-content/uploads/2018/09/AlgVW-FemVentures-juni2018.pdf">Terms and Condition</a></p>
-                        
-                    </div>
 					<button type="submit">
 						Register & Pay
 					</button>
