@@ -22,25 +22,25 @@ export default class NavBar extends React.Component {
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar >
                             <NavItem>
-                                <NavLink href="#">WHAT WE DO/</NavLink>
+                                <NavLink href="https://femaleventures.nl/mission/">WHAT WE DO</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="#">EVENT/</NavLink>
+                                <NavLink href="https://femaleventures.nl/events/">EVENT</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="#">NEWS/</NavLink>
+                                <NavLink href="https://femaleventures.nl/newsitems/">NEWS</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="#">PARTNERS/</NavLink>
+                                <NavLink href="https://femaleventures.nl/partners/">PARTNERS</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="#">CONTACT/</NavLink>
+                                <NavLink href="https://femaleventures.nl/contact/">CONTACT</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="#">DONATE/</NavLink>
+                                <NavLink href="https://femaleventures.nl/danations/">DONATE</NavLink>
                             </NavItem>
                             <NavItem>
-                                <Button  href="/registration">JOIN US !</Button >
+                                <Button  href="/registration">JOIN US</Button >
                             </NavItem>
                             <NavItem>
                                 <NavLink href="/login">LOG IN</NavLink>

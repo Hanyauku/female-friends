@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import { withRouter } from 'react-router-dom';
+import { Button, Form, FormGroup, Label, Input, FormText, Col, FormFeedback, Card, CardHeader, Row } from 'reactstrap';
+import './css/background.css';
 
 class FormLog extends Component {
     constructor(props) {
@@ -35,19 +37,40 @@ class FormLog extends Component {
     render() {
         let { errors } = this.state;
         return (
-            <div>
-                <form onSubmit={this.formHandler}>
-                    {errors.auth && <p>{errors.auth.msg}</p>}
-                    <div>
-                        {errors.email && <p>{errors.email.msg}</p>}
-                        <p>Email: <input type="email" name="email" onChange={this.changeHandler} placeholder="Email" /></p>
+            <div className="formContainer">
+                <div className="background">
+                    <div className="loginCard">
+                        <Col sm="12" md={{ size: 5, offset: 6 }}>
+                            <Card body>
+                                <CardHeader tag="h1">Log In</CardHeader>
+                                <Form onSubmit={this.formHandler}>
+                                    {errors.auth && <FormFeedback>{errors.auth.msg}</FormFeedback>}
+                                    <div>
+                                        <FormGroup raw>
+                                            {errors.email && <FormFeedback>{errors.email.msg}</FormFeedback>}
+                                            <Label  sm={4} size="lg" >Email:</Label>
+                                            <Col sm={10}>
+                                                <Input type="email" id="exampleEmail" placeholder="Enter e-mail address" name="email" onChange={this.changeHandler} bsSize="lg"/>
+                                            </Col>
+                                        </FormGroup>
+                                    </div>
+                                    <div>
+                                        <FormGroup raw>
+                                            {errors.password && <FormFeedback>{errors.password.msg}</FormFeedback>}
+                                            <Label  sm={4} size="lg" >Password:</Label>
+                                            <Col sm={10}>
+                                                <Input onChange={this.changeHandler} name="password" type="password" placeholder="Password" bsSize="lg" />
+                                            </Col>
+                                        </FormGroup>
+                                    </div>
+                                    <Col sm={{ size: 'auto', offset: 7 }}>
+                                        <button id="loginBut" type="submit" ><strong>Log In</strong></button>
+                                    </Col>
+                                </Form>
+                            </Card>
+                        </Col>
                     </div>
-                    <div>
-                        {errors.password && <p>{errors.password.msg}</p>}
-                        <p>Password: <input onChange={this.changeHandler} name="password" type="password" placeholder="Password" /></p>
-                    </div>
-                    <button type="submit">Log In</button>
-                </form>
+                </div>
             </div>
         );
     }

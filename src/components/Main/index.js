@@ -41,7 +41,6 @@ class Main extends React.Component {
                     <User user={this.state.user}/>
                     <NewPost />
                     <Posts posts={this.state.posts}/>
-                    <p>top users</p>
                     <p>group members</p>
                     <Footer />
                 </div>

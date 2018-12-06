@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Axios from 'axios';
-// import './App.css';
+import './App.css';
 
 import Login from './components/Login/';
 import Registration from './components/Registration/';
