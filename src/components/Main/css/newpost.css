@@ -1,4 +1,4 @@
-#card {
+#newCard {
     width: 60%;
     text-align: justify;
     padding: 10px;
@@ -27,7 +27,10 @@
 .card a {
     color: rgb(116, 116, 116);
 }
+#shareChallenge {
+    text-align: left;
+}
 
-.post {
-    margin: 0 auto;
+textarea {
+    height: auto;
 }

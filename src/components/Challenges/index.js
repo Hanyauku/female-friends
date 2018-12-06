@@ -4,6 +4,7 @@ import NewPost from '../Main/NewPost';
 import NavBar from '../Layout/NavBar';
 import Posts from './Posts';
 import Axios from 'axios';
+import './css/style.css';
 
 export default class Challenges extends React.Component {
     constructor(props) {
@@ -21,7 +22,9 @@ export default class Challenges extends React.Component {
         return (
             <div>
                 <NavBar />
-                <NewPost />
+                <div class="chalpage">
+                    <NewPost />
+                </div>
                 <Posts posts={this.state.posts}/>
                 <Footer />
             </div>

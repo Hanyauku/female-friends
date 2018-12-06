@@ -1,8 +1,9 @@
-#card {
+#oneCard {
     text-align: justify;
     padding: 10px;
     border-radius: 1rem 1rem;
     width: 100%;
+    margin-bottom: 3%;
 }
 
 .postfooterBy {

@@ -23,7 +23,7 @@ export default class Posts extends Component {
         body = body.slice(0, 220);
         return (
         <div className="post" key={this.props.data._id}>
-            <Card body id="card">
+            <Card body id="oneCard">
                 <CardTitle id="CardTitle" tag="h4">{title}</CardTitle>
                 <CardText>{body}<Link to={`/challenge/${_id}`}>...Read more</Link></CardText>
                 <footer className="CardFooter">
