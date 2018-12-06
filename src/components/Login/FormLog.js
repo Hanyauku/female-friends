@@ -39,7 +39,7 @@ class FormLog extends Component {
         return (
             <div className="formContainer">
                 <div className="background">
-                    <div className="loginCard">
+                    <div className="card">
                         <Col sm="12" md={{ size: 5, offset: 6 }}>
                             <Card body>
                                 <CardHeader tag="h1">Log In</CardHeader>

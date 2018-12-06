@@ -10,11 +10,7 @@ export default class User extends React.Component {
             errors : {}
         };
     }
-
-    componentDidMount() {
-        console.log('mount');
-    };
-
+    
     render() {
         return (
             <div>

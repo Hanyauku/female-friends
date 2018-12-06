@@ -7,12 +7,21 @@
    font-family: 'Open Sans', sans-serif;
 }
 
-.loginCard {
+.card {
     vertical-align: middle;
     display: block;
     padding: 100px;
 }
 
+.RegCard {
+    vertical-align: middle;
+    display: block;
+    padding: 50px 100px;
+}
+
+.card {
+    background-color: transparent;
+}
 #loginBut {
     background-color: #78b8b3;
     border-radius: 10px;
@@ -31,4 +40,8 @@ button:hover {
 
 .formContainer {
     padding-top: 100px;
+}
+
+.form-group {
+    margin-bottom: 0;
 }

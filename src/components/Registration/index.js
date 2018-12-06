@@ -9,7 +9,6 @@ export default class Registration extends React.Component {
             <div>
                 <NavBarReg />
                 <FormReg />
-                <p>Add terms and conditions</p>
                 <Footer />
             </div>
         );
