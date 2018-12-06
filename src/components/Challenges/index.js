@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from '../Layout/Footer';
 import NewPost from '../Main/NewPost';
-import MainNavBar from '../Layout/MainNavBar';
+import NavBar from '../Layout/NavBar';
 import Posts from './Posts';
 import Axios from 'axios';
 
@@ -20,7 +20,7 @@ export default class Challenges extends React.Component {
     render() {
         return (
             <div>
-                <MainNavBar />
+                <NavBar />
                 <NewPost />
                 <Posts posts={this.state.posts}/>
                 <Footer />

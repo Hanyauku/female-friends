@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
-import MainNavBar from '../Layout/MainNavBar';
+import NavBar from '../Layout/NavBar';
 import Posts from '../Challenges/Posts';
 import Footer from '../Layout/Footer';
 
@@ -20,7 +20,7 @@ export default class OneFriend extends React.Component {
     render() {
         return (
             <div>
-                <MainNavBar />
+                <NavBar />
                 <div>one friend</div>
                 <Posts posts={this.state.posts} />
                 <Footer />

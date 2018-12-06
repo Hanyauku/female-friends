@@ -1,6 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
-import {Button,Label,Input,FormGroup } from 'reactstrap';
+import { Button, Card, CardTitle, CardText, FormFeedback, Input, FormGroup, Label } from 'reactstrap';
+import './css/newpost.css';
 
 export default class NewPost extends React.Component {
     constructor(props) {
@@ -36,25 +37,24 @@ export default class NewPost extends React.Component {
         let { errors } = this.state;
         return (
             <div>
-                <div className="row">
-                    <div className="col-md-3 widget text-4 widget_text" id="NewPost">
-                        <h3>Create New post</h3><hr/>
+                <Card body id="card">
+                    <CardTitle className="CardTitle" tag="h4">Create New post</CardTitle>
+                    <CardText>
                         <form onSubmit={this.handleSubmit}>
                             <FormGroup>
-                                <Label>
-                                    {errors.title && <p>{errors.title.msg}</p>}
-                                    <Input type="text" title={this.state.title} name="title" onChange={this.handleChange} value={this.state.formData.title}  className="input"/>
-                                </Label>
-                                <Label>
-                                    {errors.body && <p>{errors.body.msg}</p>}
-                                    <textarea value={this.state.body} name="body" onChange={this.handleChange} value={this.state.formData.body} className="textarea"/>
-                                </Label>
+                                {errors.title && <Label>{errors.title.msg}</Label>}
+                                <Input type="text" title={this.state.title} name="title" onChange={this.handleChange} value={this.state.formData.title} placeholder="" className="input"/>
+                            </FormGroup>
+                            <FormGroup>
+                                {errors.body && <Label>{errors.body.msg}</Label>}
+                                <Input type="textarea" value={this.state.body} name="body" onChange={this.handleChange} value={this.state.formData.body} />
                             </FormGroup>
                             <Button type= "submit" value="post">Post</Button>
                         </form>
-                    </div>
-                </div>
+                    </CardText>
+                </Card>
             </div>
         );
     }
+
 }

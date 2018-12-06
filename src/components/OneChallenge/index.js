@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
-import MainNavBar from '../Layout/MainNavBar';
+import NavBar from '../Layout/NavBar';
 import OnePagePost from './OnePagePost';
 import Footer from '../Layout/Footer';
 
@@ -20,7 +20,7 @@ export default class OneChallenge extends React.Component {
     render() {
         return (
             <div>
-                <MainNavBar />
+                <NavBar />
                 <OnePagePost post={this.state.post}/>
                 <Footer />
             </div>

@@ -28,22 +28,22 @@ class NavBar extends React.Component {
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar >
                             <NavItem>
-                                <NavLink href="https://femaleventures.nl/mission/">WHAT WE DO/</NavLink>
+                                <NavLink href="https://femaleventures.nl/mission/">WHAT WE DO</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="https://femaleventures.nl/events/">EVENT/</NavLink>
+                                <NavLink href="https://femaleventures.nl/events/">EVENT</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="https://femaleventures.nl/newsitems/">NEWS/</NavLink>
+                                <NavLink href="https://femaleventures.nl/newsitems/">NEWS</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="https://femaleventures.nl/partners/">PARTNERS/</NavLink>
+                                <NavLink href="https://femaleventures.nl/partners/">PARTNERS</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="https://femaleventures.nl/contact/">CONTACT/</NavLink>
+                                <NavLink href="https://femaleventures.nl/contact/">CONTACT</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="https://femaleventures.nl/donations/">DONATE/</NavLink>
+                                <NavLink href="https://femaleventures.nl/donations/">DONATE</NavLink>
                             </NavItem>
                             <NavItem>
                                 <Button  href="/challenges">CHALLENGES</Button >
