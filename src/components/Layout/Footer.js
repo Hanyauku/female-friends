@@ -5,6 +5,7 @@ import linkedin from '../../img/iconfinder_linkedin.png';
 import twitter from '../../img/iconfinder_twitter.png';
 import './css/Footer.css';
 import {Button,Label,Input,FormGroup } from 'reactstrap';
+import 'font-awesome/css/font-awesome.min.css';
 
 export default class NavBar extends React.Component {
     render() {
@@ -21,9 +22,9 @@ export default class NavBar extends React.Component {
                     <div className="col-md-3 widget text-4 widget_text" id="footer">
                         <h4>Follow us</h4><hr/>
                         <div className="textwidget">
-                            <p><a href="https://www.linkedin.com/organization/14974484/" target="_blank" rel="noopener">Link us on Linkedin</a><br/>
-                            <span className="fa fa-facebook-square">&nbsp;</span><a href="https://www.facebook.com/femaleventures/" target="_blank" rel="noopener">Like us on Facebook</a><br/>
-                            <span className="fa fa-twitter">&nbsp;</span><a href="https://twitter.com/FemVentures" target="_blank" rel="noopener">Follow us on Twitter</a></p>
+                            <p><a href="https://www.linkedin.com/organization/14974484/" target="_blank" rel="noopener"><span className="fa fa-linkedin-square">&nbsp;</span>Link us on Linkedin</a><br/>
+                            <a href="https://www.facebook.com/femaleventures/" target="_blank" rel="noopener"><span className="fa fa-facebook-square">&nbsp;</span>Like us on Facebook</a><br/>
+                            <a href="https://twitter.com/FemVentures" target="_blank" rel="noopener"><span className="fa fa-twitter">&nbsp;</span>Follow us on Twitter</a></p>
                         </div>
                     </div>
                     <div className="col-md-3 widget text-4 widget_text" id="footer">
