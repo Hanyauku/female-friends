@@ -37,7 +37,7 @@ export default class NewPost extends React.Component {
         let { errors } = this.state;
         return (
             <div>
-                <Card body id="NewCard">
+                <Card body id="newCard">
                     <CardTitle className="CardTitle" id="shareChallenge" tag="h4">Share Your Challenge</CardTitle>
                     <CardText>
                         <form onSubmit={this.handleSubmit}>
@@ -47,9 +47,9 @@ export default class NewPost extends React.Component {
                             </FormGroup>
                             <FormGroup>
                                 {errors.body && <Label>{errors.body.msg}</Label>}
-                                <Input type="textarea" rows="7" value={this.state.body} name="body" placeholder="Describe your challenge here" onChange={this.handleChange} value={this.state.formData.body} />
+                                <Input type="textarea" rows="6" value={this.state.body} name="body" placeholder="Describe your challenge here" onChange={this.handleChange} value={this.state.formData.body} />
                             </FormGroup>
-                            <Button type= "submit" value="post">Post</Button>
+                            <Button id="newPostBtn" type= "submit" value="post">Post</Button>
                         </form>
                     </CardText>
                 </Card>
