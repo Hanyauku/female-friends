@@ -1,0 +1,24 @@
+center{
+    padding-top: 100px;
+    width: 97%;
+    
+    
+}
+.mainRight{
+    width: 20%;
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid #CED4DA;
+    border-radius: 1rem 1rem;
+    
+}
+.mainleft{
+    width: 70%;
+    display: inline-block;  
+    text-align: justify;
+    padding: 10px;
+    border-radius: 1rem 1rem;
+    vertical-align: top;
+
+      
+}

@@ -1,0 +1,15 @@
+#card{
+    width: 95%;
+    text-align: justify;
+
+    padding: 10px;
+    border-radius: 1rem 1rem;
+}
+/* 
+.CardFooter{
+  height: 30px;
+  background-color: rgb(232, 240, 239);
+}
+.card a{
+  color: rgb(116, 116, 116);
+} */

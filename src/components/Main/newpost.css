@@ -1,0 +1,26 @@
+#card{
+    width: 100%;
+    text-align: justify;
+
+    padding: 10px;
+    border-radius: 1rem 1rem;
+    margin-bottom: 10px;
+}
+.postfooterBy{
+  text-align: left;
+  float: left;
+padding-left: 10Px;
+display: inline;
+}
+.postfooterComment{
+float: right;
+display: inline;
+padding-right: 10px;
+}
+.CardFooter{
+  height: 30px;
+  background-color: rgb(232, 240, 239);
+}
+.card a{
+  color: rgb(116, 116, 116);
+}
