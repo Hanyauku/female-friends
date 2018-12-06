@@ -8,6 +8,7 @@ import Posts from '../Challenges/Posts';
 import User from './User';
 import Axios from 'axios';
 import { withRouter } from 'react-router-dom';
+import './css/Main.css';
 
 class Main extends React.Component {
     constructor(props) {
@@ -38,15 +39,22 @@ class Main extends React.Component {
             <div>
                 <div>
                     <NavBar />
-                    <User user={this.state.user}/>
-                    <NewPost />
-                    <Posts posts={this.state.posts}/>
-                    <p>group members</p>
+                    <center>
+                        <div className="mainleft">
+                            <div className="newpostMain"><NewPost /></div>
+                            <div className="postsMain"><Posts posts={this.state.posts}/></div>
+                        </div>
+                        <div className="mainRight">
+                            <div className="userMain"><User user={this.state.user}/></div>
+                            <div className="groupMain">top members</div>
+                        </div>
+                    </center>
                     <Footer />
                 </div>
             </div>
         );
     }
 }
+
 
 export default withRouter(Main);

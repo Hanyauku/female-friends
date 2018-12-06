@@ -1,6 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
-import avatar from '../../img/default-placeholder-profile-icon.jpg'
+import avatar from '../../img/default-placeholder-profile-icon.jpg';
+import './css/User.css';
 
 export default class User extends React.Component {
     constructor(props) {
@@ -10,12 +11,12 @@ export default class User extends React.Component {
             errors : {}
         };
     }
-    
+
     render() {
         return (
             <div>
                 <h1>Hello, {this.props.user.firstName}</h1>
-                <img src={avatar}/>
+                <img class="imgMain" src={avatar}/>
             </div>
         );
     }
