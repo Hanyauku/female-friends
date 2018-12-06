@@ -22,7 +22,7 @@ class NavBar extends React.Component {
     render() {
         return (
             <div >
-                <Navbar id="Navbar" fixedTop dark expand="md">
+                <Navbar id="Navbar" dark expand="md">
                     <NavbarBrand href="/"><img id="logo" src="https://femaleventures.nl/wp-content/uploads/2018/06/Logo_White-e1530265633749.png" alt="Female Ventures"></img></NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>

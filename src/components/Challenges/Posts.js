@@ -5,7 +5,7 @@ import './css/posts.css';
 export default class Contacts extends Component {
     render() {
         return (
-            <div class="posts">
+            <div className="posts">
                 {this.props.posts.map(post => (
 						<OnePost data={post} />
 				))}

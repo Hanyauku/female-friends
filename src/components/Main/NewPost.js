@@ -43,7 +43,7 @@ export default class NewPost extends React.Component {
                         <form onSubmit={this.handleSubmit}>
                             <FormGroup>
                                 {errors.title && <Label>{errors.title.msg}</Label>}
-                                <Input type="text" title={this.state.title} name="title" placeholder="Title" onChange={this.handleChange} value={this.state.formData.title} placeholder="" className="input"/>
+                                <Input type="text" title={this.state.title} name="title" placeholder="Title" onChange={this.handleChange} value={this.state.formData.title} placeholder="Title" className="input"/>
                             </FormGroup>
                             <FormGroup>
                                 {errors.body && <Label>{errors.body.msg}</Label>}

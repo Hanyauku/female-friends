@@ -10,9 +10,20 @@ export default class Challenges extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            posts: []
+            posts: [],
+            isLogged: false
         }
     }
+
+    componentWillMount() {
+        Axios.get('http://localhost:8000/api/user/auth')
+            .then(res => {
+                this.setState({ isLogged: true });
+            })
+            .catch(err => {
+                this.props.history.push('/Login');
+        });
+    };
 
     componentDidMount() {
         Axios.get('http://localhost:8000/api/post/getallposts').then(res => this.setState( {posts: res.data} ));

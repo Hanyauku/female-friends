@@ -13,6 +13,9 @@
     padding: 100px;
 }
 
+#logcard {
+    background-color: rgba(255, 255, 255, .5);
+}
 
 #loginBut {
     background-color: #78b8b3;

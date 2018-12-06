@@ -89,7 +89,7 @@ class FormReg extends Component {
 										</Label>
 									</Col>
 						   		</FormGroup>
-						 		<Col sm={{ size: 'auto', offset: 1 }}>
+						 		<Col sm={{ size: 'auto', offset: 4 }}>
 								   	<button id="loginBut" type="submit">
 									  	Register & Pay
 								   	</button>
