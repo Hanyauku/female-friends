@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 export default class OnePostPage extends React.Component {
+
     render() {
         let user = this.props.post.user;
         let {title, body, createdAt, _id} = this.props.post;

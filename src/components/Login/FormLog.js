@@ -39,15 +39,15 @@ class FormLog extends Component {
         return (
             <div className="formContainer">
                 <div className="background">
-                    <div className="card">
+                    <div className="loginCard">
                         <Col sm="12" md={{ size: 5, offset: 6 }}>
-                            <Card body>
+                            <Card id="logcard" body>
                                 <CardHeader tag="h1">Log In</CardHeader>
                                 <Form onSubmit={this.formHandler}>
-                                    {errors.auth && <FormFeedback>{errors.auth.msg}</FormFeedback>}
+                                    {errors.auth && <Label>{errors.auth.msg}</Label>}
                                     <div>
                                         <FormGroup raw>
-                                            {errors.email && <FormFeedback>{errors.email.msg}</FormFeedback>}
+                                            {errors.email && <Label>{errors.email.msg}. </Label>}
                                             <Label  sm={4} size="lg" >Email:</Label>
                                             <Col sm={10}>
                                                 <Input type="email" id="exampleEmail" placeholder="Enter e-mail address" name="email" onChange={this.changeHandler} bsSize="lg"/>
@@ -56,14 +56,14 @@ class FormLog extends Component {
                                     </div>
                                     <div>
                                         <FormGroup raw>
-                                            {errors.password && <FormFeedback>{errors.password.msg}</FormFeedback>}
+                                            {errors.password && <Label>{errors.password.msg}. </Label>}
                                             <Label  sm={4} size="lg" >Password:</Label>
                                             <Col sm={10}>
                                                 <Input onChange={this.changeHandler} name="password" type="password" placeholder="Password" bsSize="lg" />
                                             </Col>
                                         </FormGroup>
                                     </div>
-                                    <Col sm={{ size: 'auto', offset: 7 }}>
+                                    <Col sm={{ size: 'auto', offset: 4 }}>
                                         <button id="loginBut" type="submit" ><strong>Log In</strong></button>
                                     </Col>
                                 </Form>

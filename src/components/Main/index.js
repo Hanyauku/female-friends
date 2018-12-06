@@ -8,7 +8,8 @@ import Posts from '../Challenges/Posts';
 import User from './User';
 import Axios from 'axios';
 import { withRouter } from 'react-router-dom';
-import './Main.css';
+import './css/Main.css';
+import { Button, Card, CardTitle, CardText, FormFeedback, Input, FormGroup, Label } from 'reactstrap';
 
 
 class Main extends React.Component {
@@ -42,14 +43,17 @@ class Main extends React.Component {
                     <NavBar />
                     <center>
                         <div className="mainleft">
-                            <div className="newpost"><NewPost /></div>
-                            <div class="posts"><Posts posts={this.state.posts}/></div>
+                            <div className="newpostMain"><NewPost /></div>
+                            <div className="postsMain"><Posts posts={this.state.posts}/></div>
                         </div>
                         <div className="mainRight">
-                            <div className="user"><User user={this.state.user}/></div>
-                            <div className="group">group members</div>
+                            <div className="userMain"><User user={this.state.user}/>
+                            <Button  type= "submit">profile</Button>
+                            <Button  type= "submit">Friends</Button>
+                            <Button  type= "submit">messages</Button>
+                            </div>
+                            <div className="groupMain"><TopMembers /></div>
                         </div>
-                        
                     </center>
                     <Footer />
                 </div>
@@ -57,5 +61,6 @@ class Main extends React.Component {
         );
     }
 }
+
 
 export default withRouter(Main);

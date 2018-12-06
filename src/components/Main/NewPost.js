@@ -1,7 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
-import {Button,Card,CardTitle,CardText,FormFeedback,Input,FormGroup, Label } from 'reactstrap';
-import './newpost.css';
+import { Button, Card, CardTitle, CardText, FormFeedback, Input, FormGroup, Label } from 'reactstrap';
+import './css/newpost.css';
 
 export default class NewPost extends React.Component {
     constructor(props) {
@@ -37,25 +37,22 @@ export default class NewPost extends React.Component {
         let { errors } = this.state;
         return (
             <div>
-                <Card body id="card">
-                <CardTitle className="CardTitle" tag="h4">Create New post</CardTitle>
-                <CardText>
-                <form onSubmit={this.handleSubmit}>
-                <FormGroup>
-                    {errors.title && <Label>{errors.title.msg}</Label>}
-                    <Input type="text" title={this.state.title} name="title" onChange={this.handleChange} value={this.state.formData.title} placeholder="" className="input"/>
-                    
-                </FormGroup>
-                <FormGroup>
-                            
-                            {errors.body && <Label>{errors.body.msg}</Label>}
-                            <Input type="textarea" value={this.state.body} name="body" onChange={this.handleChange} value={this.state.formData.body} />
-                    </FormGroup>
-                    <Button type= "submit" value="post">Post</Button>
-                </form> 
-                </CardText>
-                
-            </Card>
+                <Card body id="newCard">
+                    <CardTitle className="CardTitle" id="shareChallenge" tag="h4">Share Your Challenge</CardTitle>
+                    <CardText>
+                        <form onSubmit={this.handleSubmit}>
+                            <FormGroup>
+                                {errors.title && <Label>{errors.title.msg}</Label>}
+                                <Input type="text" title={this.state.title} name="title" placeholder="Title" onChange={this.handleChange} value={this.state.formData.title} placeholder="Title" className="input"/>
+                            </FormGroup>
+                            <FormGroup>
+                                {errors.body && <Label>{errors.body.msg}</Label>}
+                                <Input type="textarea" rows="6" value={this.state.body} name="body" placeholder="Describe your challenge here" onChange={this.handleChange} value={this.state.formData.body} />
+                            </FormGroup>
+                            <Button id="newPostBtn" type= "submit" value="post">Post</Button>
+                        </form>
+                    </CardText>
+                </Card>
             </div>
         );
     }

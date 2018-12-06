@@ -1,8 +1,8 @@
-#oneCard {
+#newCard {
+    width: 100%;
     text-align: justify;
     padding: 10px;
-    border-radius: 1rem 1rem;
-    width: 100%;
+    border-radius: 10px;
     margin-bottom: 3%;
 }
 
@@ -20,18 +20,21 @@
 }
 
 .CardFooter {
+    padding: 20px;
     background-color: rgb(232, 240, 239);
 }
 
 .card a {
     color: rgb(116, 116, 116);
 }
-
-#CardTitle {
+#shareChallenge {
     text-align: left;
 }
 
-.post {
-    width: 100%;
-    margin: 0 auto;
+textarea {
+    height: auto;
+}
+
+#newPostBtn {
+    float: right;
 }
