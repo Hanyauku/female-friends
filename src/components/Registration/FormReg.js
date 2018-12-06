@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import { withRouter } from 'react-router-dom';
+import './css/RegStyle.css';
+import { Col, Button, Form, FormGroup, Label, Input, FormText, FormFeedback, Row, Card, CardHeader, UncontrolledTooltip} from 'reactstrap';
 
 class FormReg extends Component {
 	constructor(props) {
@@ -38,34 +40,82 @@ class FormReg extends Component {
 	render() {
 		let { errors } = this.state;
 		return (
-			<div>
-				<form onSubmit={this.formHandler}>
-					{errors.auth && <p>{errors.auth.msg}</p>}
-                    <div>
-						{errors.firstName && <p>{errors.firstName.msg}</p>}
-						<p>First Name: <input onChange={this.changeHandler} name="firstName" type="text" /></p>
-					</div>
-                    <div>
-						{errors.firstName && <p>{errors.lastName.msg}</p>}
-						<p>Last Name: <input onChange={this.changeHandler} name="lastName" type="text" /></p>
-					</div>
-					<div>
-						{errors.email && <p>{errors.email.msg}</p>}
-						<p>e-mail: <input type="email" name="email" onChange={this.changeHandler} /></p>
-					</div>
-					<div>
-						{errors.password && <p>{errors.password.msg}</p>}
-						<p>Password: <input onChange={this.changeHandler} name="password" type="password" /></p>
-					</div>
-					<div>
-						{errors.password_con && <p>{errors.password_con.msg}</p>}
-						<p>Confirm Password: <input onChange={this.changeHandler} name="password_conf" type="password" /></p>
-					</div>
-					<button type="submit">
-						Register & Pay
-					</button>
-				</form>
-			</div>
+            <div className="RegBackground">
+                <div className="RegCard">
+                <Col sm="12" md={{ size: 5, offset: 6 }}>
+                    <Card body>
+                        <CardHeader tag="h1">Registration</CardHeader>
+                        <br />
+				            <Form onSubmit={this.formHandler}>
+					           {errors.auth && <FormFeedback>{errors.auth.msg}</FormFeedback>}
+                        <br/>
+                        <FormGroup row>
+						      {errors.firstName && <FormFeedback>{errors.firstName.msg}</FormFeedback>}
+						      <Label for="first name">First Name: </Label>{' '}
+                              <Col>
+                                    <Input onChange={this.changeHandler} name="firstName" type="text" />
+                               </Col>
+					   </FormGroup>
+                       <FormGroup row>
+						      {errors.firstName && <FormFeedback>{errors.lastName.msg}</FormFeedback>}
+						      <Label for="last name">Last Name: </Label>
+                              <Col>
+                                    <Input onChange={this.changeHandler} name="lastName" type="text" />
+                              </Col>
+					   </FormGroup>
+					   <FormGroup row>
+						      {errors.email && <FormFeedback>{errors.email.msg}</FormFeedback>}
+						      <Label for="email">e-mail: </Label>
+                              <Col>
+                                    <Input type="email" name="email" onChange={this.changeHandler} />
+                              </Col>
+					   </FormGroup>
+					   <FormGroup row>
+						      {errors.password && <FormFeedback>{errors.password.msg}</FormFeedback>}
+						      <Label for="password">Password: </Label>
+                              <Col>
+                                    <Input onChange={this.changeHandler} name="password" type="password" />
+                              </Col>
+					   </FormGroup>
+					   <FormGroup row>
+						      {errors.password_con && <FormFeedback>{errors.password_con.msg}</FormFeedback>}
+						      <Label for="confirm password">Confirm Password: </Label>
+                              <Col>
+                                    <Input onChange={this.changeHandler} name="password_conf" type="password" />
+                              </Col>
+					   </FormGroup>
+                       <br/>
+                       <Col sm={{ size: 'auto' }}>
+                       <FormGroup check>
+                            <Label for="term" tag="strong">Term and Condition<span id="UncontrolledTooltipExample"> *</span></Label>
+                            <UncontrolledTooltip placement="right" target="UncontrolledTooltipExample">
+                                By registering for Female Ventures you agree with our terms and conditions
+                            </UncontrolledTooltip>
+                            <br/>
+                            <br/>
+                            <Label check>
+                                <Input type="checkbox" />{' '}
+                                Agree with our Term and Condition
+                            </Label>
+                            <br/>
+                            <br/>
+                            <p>View our <a href="#">Term and Condition</a></p>
+                        </FormGroup>
+                        </Col>
+                        <br/>
+                        
+                     <Col sm={{ size: 'auto', offset: 6 }}>
+					   <button type="submit">
+						  Register & Pay
+					   </button>
+                  
+                    </Col>
+                    <br/>
+				</Form>
+                </Card>
+               </Col> 
+			 </div>
+             </div>
 		);
 	}
 }
