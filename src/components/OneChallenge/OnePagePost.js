@@ -1,24 +1,22 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import { Card, Row, Col, CardHeader, CardTitle, CardText, Button, CardFooter } from 'reactstrap';
+import '../Challenges/css/onepost.css';
 
 export default class OnePostPage extends React.Component {
-
     render() {
-        let user = this.props.post.user;
         let {title, body, createdAt, _id} = this.props.post;
-        //let {firstName, lastName} = this.props.post.user;
-        //createdAt = createdAt.slice(0, 10);
+        let {firstName, lastName} = this.props.author;
         return (
-            <div key={_id}>
-                <h3>{title}</h3>
-            </div>
+        <div className="post" key={_id}>
+            <Card body id="oneCard">
+                <CardTitle id="CardTitle" tag="h1">{title}</CardTitle>
+                <div className="postfooterBy">
+                    <p>by <Link to={`/friend/${this.props.author._id}`}>{firstName} {lastName}</Link> at {this.props.date}</p>
+                </div>
+                <CardText>{body}</CardText>
+            </Card>
+        </div>
         );
     };
 }
-
-/* <div key={this.props.post._id}>
-    <h3>{title}</h3>
-    <h5>by <Link to={`/friend/${this.props.data.user._id}`}>{firstName} {lastName}</Link></h5>
-    <p>{body} <Link to={`/challenge/${_id}`}>Read more...</Link></p>
-    <p>Posted at {createdAt}</p>
-</div> */

@@ -14,27 +14,22 @@ class TopMembers extends Component {
 
     componentDidMount() {
         Axios.get('http://localhost:8000/api/user/top').then(res => this.setState( {top: res.data} ));
-        console.log('Hello');
-    };    
-  render() {
-    return (
-        
-        <div>
-            <Card>
-                <CardTitle>Top Members</CardTitle>
-                    <ul>
-                        <li>
-                        <Link to={`/friend/${this.props.data}`}>
-                            {this.state.top.map(user => (
-						      <OneUser data={user}/> 
-				            ))}
-                         </Link>
-                        </li>
-                    </ul>
-            </Card>
-        </div>
-     );
-  }
+    };
+
+    render() {
+        return (
+            <div>
+                <Card>
+                    <CardTitle>Top Members</CardTitle>
+                        {this.state.top.map(user => (
+                            <Link to={`/friend/${user._id}`}>
+    					        <OneUser data={user}/>
+                            </Link>
+    			        ))}
+                </Card>
+            </div>
+        );
+    }
 }
 
 export default TopMembers;
