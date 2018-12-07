@@ -56,5 +56,4 @@ export default class NewPost extends React.Component {
             </div>
         );
     }
-
 }

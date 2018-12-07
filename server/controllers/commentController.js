@@ -68,14 +68,14 @@ const validatecomment = [
 ];
 
 //Add Comment
-router.post('/addcomment', authCheck, validatecomment, activityPlus,(req, res) => {
+router.post('/addcomment/:id', authCheck, validatecomment, activityPlus,(req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.mapped() });
     }
     const comment = new Comment(req.body);
     comment.user = req.session.user._id;
-    // insert post ID from frontend
+    comment.post = req.params.id;
     comment.save()
     .then(comment => {
         return res.json({
@@ -94,7 +94,7 @@ router.post('/addcomment', authCheck, validatecomment, activityPlus,(req, res) =
 // get all comments
 router.get('/getallcomments', (req, res) => {
     Comment.find()
-    .populate('user', ['firstName', 'lastName'])
+    .populate('user', { password: 0 })
     .sort({ createdAt: 'desc' })
     .then(comments => {
         res.json(comments);
@@ -109,6 +109,7 @@ router.get('/postcomment/:id', (req, res) => {
     .populate(
         {path: 'post',
         match: { _id: req.params.id }})
+    .populate('user', ['firstName', 'lastName'])
     .then(comments => {
         let newcomments = comments.filter(comment => {if (comment.post) return comment });
         res.json(newcomments)
