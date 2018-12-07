@@ -22,6 +22,16 @@ export default class OneChallenge extends React.Component {
         }
     }
 
+    componentWillMount() {
+        Axios.get('http://localhost:8000/api/user/auth')
+            .then(res => {
+                this.setState({ isLogged: true });
+            })
+            .catch(err => {
+                this.props.history.push('/Login');
+        });
+    };
+    
     handleChange = e => {
         let formData = this.state.formData;
         formData[e.target.name] = e.target.value;

@@ -14,6 +14,16 @@ export default class OneFriend extends React.Component {
         }
     }
 
+    componentWillMount() {
+        Axios.get('http://localhost:8000/api/user/auth')
+            .then(res => {
+                this.setState({ isLogged: true });
+            })
+            .catch(err => {
+                this.props.history.push('/Login');
+        });
+    };
+
     componentDidMount() {
         Axios.get(`http://localhost:8000/api/post/getallbyid/${this.props.match.params.id}`).then(res => this.setState( {posts: res.data} ));
         Axios.get(`http://localhost:8000/api/user//friend/${this.props.match.params.id}`).then(res => this.setState( {user: res.data} ));
