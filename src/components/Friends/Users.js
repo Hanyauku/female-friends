@@ -23,20 +23,18 @@ export default class Users extends Component {
 
     render() {
         return (
-            <div>
-                <CardColumns>
+            <div class="allUsers">
                     {this.state.users.map(user => (
-                        <div>
-                            <Card id="card_users">
-                                <CardImg top width="100%"  src={avatar} alt="avatar"></CardImg>
+                        <div id="alluserCard">
+                            <Card id="friendCard">
+                                <CardImg top width="80%"  src={avatar} alt="avatar"></CardImg>
                                 <Link to={`/friend/${user._id}`}>
-						              <CardTitle><OneUser data={user} /></CardTitle>
+						              <CardTitle id="nameAllUsers">{user.firstName} {user.lastName}</CardTitle>
                                 </Link>
                                 <button id="loginBut">Add Friend</button><button id="loginBut">Message</button>
                             </Card>
                         </div>
 				    ))}
-                </CardColumns>
             </div>
             )
         }

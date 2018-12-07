@@ -10,7 +10,7 @@ export default class NewComment extends React.Component {
             <div>
                 <Card body id="newCard">
                     <CardText>
-                        <form onSubmit={this.handleSubmit}>
+                        <form>
                             <FormGroup>
                                 {errors.comment && <Label>{errors.comment.msg}</Label>}
                                 <Input type="textarea" rows="3" name="comment" placeholder="Write your comment here" value={this.props.comment.comment} />
