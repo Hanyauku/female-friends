@@ -6,9 +6,6 @@ import {Link} from 'react-router-dom';
 import avatar from '../../img/default-placeholder-profile-icon.jpg'
 import '../Login/css/background.css';
 
-
-
-
 export default class Users extends Component {
     constructor(props) {
         super(props);
